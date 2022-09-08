@@ -12,7 +12,6 @@ bot.start((ctx) => {
                     {text: "Atendimento"},
                     {text: "Últimas Notícias"},
                     {text: "Canais Oficiais"},
-                    {text: "Ajuda"},
 
                 ]
             ],
@@ -23,37 +22,25 @@ bot.start((ctx) => {
 
 bot.on('text', ctx => {
     if (ctx.message.text === "Atendimento") {
-        bot.telegram.sendMessage(ctx.chat.id, `Selecione o Setor que deseja o Atendimento:`, {
+        bot.telegram.sendMessage(ctx.chat.id, `Selecione a Secretaria em que deseja o Atendimento:`, {
             reply_markup: {
                 keyboard: [
                     [
-                        {text: "Administração"},
-                        {text: "Controle Interno"},
-                        {text: "Contabilidade"},
+                        {text: "Administração e Finanças"},
+                        {text: "Agricultura e Meio Ambiente"},
                     ],
                     [
-                        {text: "Tributação"},
-                        {text: "Jurídico"},
-                        {text: "Recursos Humanos"},
-                        {text: "Tesouraria"},
+                        {text: "Desenvolvimento Social e Habitação"},
+                        {text: "Educação e Esporte"},
                     ],
                     [
-                        {text: "Engenharia"},
-                        {text: "Educação"},
-                        {text: "Patrimônio"},
-                        {text: "Licitações"},
+                        {text: "Gabinete do Prefeito"},
+                        {text: "Indústria, Comércio, Cultura e Turismo"},
                     ],
                     [
-                        {text: "Obras"},
-                        {text: "Agronegócio"},
-                        {text: "Bloco de Notas"},
-                        {text: "Casa da Cultura"},
-                    ],
-                    [
+                        {text: "Viação e Obras Públicas"},
                         {text: "Saúde"},
-                        {text: "Vigilância Epidemiológica"},
-                        {text: "Vigilância Sanitária"},
-                    ],
+                    ]
                 ],
                 resize_keyboard: true,
             }
@@ -80,6 +67,59 @@ bot.on('text', ctx => {
                         {text: "Facebook", url: "https://www.facebook.com/prefeituraitaoficial/"},
                     ]
                 ],
+            }
+        })
+    }
+    if (ctx.message.text === "Administração e Finanças") {
+        bot.telegram.sendMessage(ctx.chat.id, `Selecione o departamento em que deseja o Atendimento:`, {
+            reply_markup: {
+                keyboard: [
+                    [
+                        {text: "Administração"},
+                        {text: "Contabilidade"},
+                        {text: "Controle Interno"},
+                    ],
+                    [
+                        {text: "Defesa Civil"},
+                        {text: "Engenharia"},
+                        {text: "Jurídico"},
+                        {text: "Licitações"},
+                    ],
+                    [
+                        {text: "Patrimônio"},
+                        {text: "Recursos Humanos"},
+                        {text: "Tesouraria"},
+                        {text: "Tributação"},
+                    ],
+                ],
+                resize_keyboard: true,
+            }
+        })
+    }
+    if (ctx.message.text === "Agricultura e Meio Ambiente") {
+        bot.telegram.sendMessage(ctx.chat.id, `Selecione o departamento em que deseja o Atendimento:`, {
+            reply_markup: {
+                keyboard: [
+                    [
+                        {text: "Agricultura"},
+                        {text: "Bloco de Notas"},
+                    ]
+                ],
+                resize_keyboard: true,
+            }
+        })
+    }
+    if (ctx.message.text === "Desenvolvimento Social e Habitação") {
+        bot.telegram.sendMessage(ctx.chat.id, `Selecione o departamento em que deseja o Atendimento:`, {
+            reply_markup: {
+                keyboard: [
+                    [
+                        {text: "Assistência Social"},
+                        {text: "Conselho Tutelar"},
+                        {text: "CRAS - Centro de Referência em Assistência Social"},
+                    ]
+                ],
+                resize_keyboard: true,
             }
         })
     }
@@ -112,7 +152,7 @@ bot.on('text', ctx => {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2211`, {});
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: engenharia@itaiopolis.sc.gov.br
             topografia@itaiopolis.sc.gov.br`, {});
-    }else if (ctx.message.text === "Educação") {
+    }else if (ctx.message.text === "Educação e Esporte") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2211`, {});
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: transporteescolar@itaiopolis.sc.gov.br
             educacaoitaiopolis@yahoo.com.br
@@ -125,11 +165,11 @@ bot.on('text', ctx => {
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: licitacao@itaiopolis.sc.gov.br
             cotacao.itaiopolis@gmail.com`, {});
     }else if (ctx.message.text === "Obras") {
-        bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2211`, {});
-        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: agronegocio@itaiopolis.sc.gov.br`, {});
-    }else if (ctx.message.text === "Agronegócio") {
-        bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2211`, {});
-        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: agronegocio@itaiopolis.sc.gov.br`, {});
+        bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2746`, {});
+        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: dmer@itaiopolis.sc.gov.br`, {});
+    }else if (ctx.message.text === "Agricultura") {
+        bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2844`, {});
+        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: agricultura@itaiopolis.sc.gov.br`, {});
     }else if (ctx.message.text === "Bloco de Notas") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2844`, {});
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: agronegocio@itaiopolis.sc.gov.br`, {});
@@ -146,6 +186,19 @@ bot.on('text', ctx => {
     }else if (ctx.message.text === "Vigilância Sanitária") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-1492`, {});
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: vigilancia@itaiopolis.sc.gov.br`, {});
+    }else if (ctx.message.text === "Assistência Social") {
+        bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-1274`, {});
+        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: desenvolvimentosocial@itaiopolis.sc.gov.br
+        habitacao@itaiopolis.sc.gov.br
+        bolsafamilia@itaiopolis.sc.gov.br
+        `, {});
+    }else if (ctx.message.text === "Conselho Tutelar") {
+        bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-1149`, {});
+        bot.telegram.sendMessage(ctx.chat.id, `📱 WhatsApp: (47)99730-7887`, {});
+        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: `, {});
+    }else if (ctx.message.text === "CRAS - Centro de Referência em Assistência Social") {
+        bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-1156`, {});
+        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: cras@itaiopolis.sc.gov.br`, {});
     }
 
 });
