@@ -21,6 +21,7 @@ bot.start((ctx) => {
 });
 
 bot.on('text', ctx => {
+    console.log(ctx.message);
     if (ctx.message.text === "Atendimento" || ctx.message.text === "⬅️ Voltar ao Atendimento" ) {
         bot.telegram.sendMessage(ctx.chat.id, `Selecione a Secretaria em que deseja o Atendimento:`, {
             reply_markup: {
@@ -226,12 +227,12 @@ bot.on('text', ctx => {
             cotacao.itaiopolis@gmail.com`, {});
     }else if (ctx.message.text === "Obras") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2746`, {});
+        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: agronegocio@itaiopolis.sc.gov.br`, {});
     }else if (ctx.message.text === "Agricultura") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2844`, {});
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: agricultura@itaiopolis.sc.gov.br`, {});
     }else if (ctx.message.text === "Bloco de Notas") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2844`, {});
-        bot.telegram.sendMessage(ctx.chat.id, `📧 Email: agronegocio@itaiopolis.sc.gov.br`, {});
     }else if (ctx.message.text === "Casa da Cultura") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-1306`, {});
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: cultura@itaiopolis.sc.gov.br
