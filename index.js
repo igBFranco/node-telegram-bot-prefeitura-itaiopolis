@@ -183,6 +183,23 @@ bot.on('text', ctx => {
             }
         })
     }
+    if (ctx.message.text === "Saúde") {
+        bot.telegram.sendMessage(ctx.chat.id, `Selecione o departamento em que deseja o Atendimento:`, {
+            reply_markup: {
+                keyboard: [
+                    [
+                        {text: "Secretaria de Saúde"},
+                        {text: "Vigilância Epidemiológica"},
+                        {text: "Vigilância Sanitária"},
+                    ],
+                    [
+                        {text: "⬅️ Voltar ao Atendimento"},
+                    ],
+                ],
+                resize_keyboard: true,
+            }
+        })
+    }
     
     if (ctx.message.text === "Administração") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-2211`, {});
@@ -237,7 +254,7 @@ bot.on('text', ctx => {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-1306`, {});
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: cultura@itaiopolis.sc.gov.br
         turismo@itaiopolis.sc.gov.br`, {});
-    }else if (ctx.message.text === "Saúde") {
+    }else if (ctx.message.text === "Secretaria de Saúde") {
         bot.telegram.sendMessage(ctx.chat.id, `📞 Telefone: (47)3652-1893`, {});
         bot.telegram.sendMessage(ctx.chat.id, `📧 Email: saude@itaiopolis.sc.gov.br`, {});
     }else if (ctx.message.text === "Vigilância Epidemiológica") {
@@ -283,6 +300,5 @@ bot.on('text', ctx => {
 
 });
 
-bot.hears('oi', (ctx) => ctx.reply(`Olá! ${ctx.chat.first_name}`))
 
 bot.launch()
