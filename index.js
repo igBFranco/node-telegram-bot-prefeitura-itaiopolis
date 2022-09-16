@@ -4,7 +4,7 @@ require('dotenv').config()
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 bot.start((ctx) => {
-    bot.telegram.sendMessage(ctx.chat.id, `Olá ${ctx.chat.first_name}, Seja Bem Vindo ao Bot Oficial da Prefeitura de Itaiópolis!`, {});
+    bot.telegram.sendMessage(ctx.chat.id, `Olá ${ctx.chat.first_name}, Seja Bem Vindo ao Canal Oficial da Prefeitura de Itaiópolis no Telegram!`, {});
     bot.telegram.sendMessage(ctx.chat.id, `Para podermos lhe ajudar, selecione uma opção:`, {
         reply_markup: {
             keyboard: [
@@ -41,6 +41,24 @@ bot.on('text', ctx => {
                     [
                         {text: "Viação e Obras Públicas"},
                         {text: "Saúde"},
+                    ],
+                    [
+                        {text: "⬅️ Voltar ao Menu Inicial"}
+                    ]
+                ],
+                resize_keyboard: true,
+            }
+        })
+    }
+    if (ctx.message.text === "Menu Inicial" || ctx.message.text === "⬅️ Voltar ao Menu Inicial" ) {
+        bot.telegram.sendMessage(ctx.chat.id, `Para podermos lhe ajudar, selecione uma opção:`, {
+            reply_markup: {
+                keyboard: [
+                    [
+                        {text: "Atendimento"},
+                        {text: "Últimas Notícias"},
+                        {text: "Canais Oficiais"},
+    
                     ]
                 ],
                 resize_keyboard: true,
